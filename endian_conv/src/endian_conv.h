@@ -105,6 +105,15 @@ rfInt32  get_rfInt32_from_packet (rfUint8** buffer_address, rf_endianess endian)
 rfUint32 get_rfUint32_from_packet(rfUint8** buffer_address, rf_endianess endian);
 
 /**
+ * @brief get_rfFloat_from_packet. Reads rfFloat from *buffer_address and
+ *        converts little endian to host.
+ * @param buffer_address - Pointer to the buffer_address.
+ *        This pointer will be incremented by 4;
+ * @return Extracted 32 bit rfFloat value
+ */
+rfFloat get_rfFloat_from_packet(rfUint8** buffer_address, rf_endianess endian);
+
+/**
  * @brief get_array_from_packet. Reads num bytes from source_buffer to
  *        destination_buffer.
  * @param destination_buffer - Pointer to the destination buffer.
