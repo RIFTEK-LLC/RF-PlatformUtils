@@ -117,7 +117,7 @@ rfUint32 get_rfUint32_from_packet(rfUint8** buffer_address, rf_endianess endian)
 rfFloat get_rfFloat_from_packet(rfUint8** buffer_address, rf_endianess endian)
 {
     rfUint8 *buffer = (rfUint8*)*buffer_address;
-    rfFloat data = 0;
+    rfUint32 data = 0;
     if(endian == kEndianessLittle)
         data =  ( (buffer[0] << 0)
                 | (buffer[1] << 8)
@@ -129,7 +129,7 @@ rfFloat get_rfFloat_from_packet(rfUint8** buffer_address, rf_endianess endian)
                 | (buffer[1] << 16)
                 | (buffer[0] << 24));
     *buffer_address += sizeof (rfUint32);
-    return data;
+    return *(rfFloat*)&data;
 }
 
 
